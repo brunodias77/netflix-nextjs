@@ -3,16 +3,17 @@ import Link from 'next/link'
 import { useState, useEffect } from 'react'
 
 function Header() {
-  const [isScroll, setIsScroll] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.screenY > 0) {
-        setIsScroll(true)
+      if (window.scrollY > 0) {
+        setIsScrolled(true)
       } else {
-        setIsScroll(false)
+        setIsScrolled(false)
       }
     }
+
     window.addEventListener('scroll', handleScroll)
 
     return () => {
@@ -21,7 +22,7 @@ function Header() {
   }, [])
 
   return (
-    <header className={`${isScroll && 'bg-[#141414]'}`}>
+    <header className={`${isScrolled && 'bg-[#141414]'}`}>
       <div className="flex items-center space-x-2 md:space-x-10">
         <img
           src="https://rb.gy/ulxxee"
